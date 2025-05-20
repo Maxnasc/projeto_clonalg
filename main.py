@@ -13,7 +13,7 @@ def get_result_and_plot(generations, m, data_config, SR, CR, gamma, opposition, 
     best_result = None
     best_score = float('inf')  # ou float('-inf') dependendo se você minimiza ou maximiza
 
-    for i in range(1):
+    for i in range(30):
         result, scores_g = run_clonal_g(generations=generations, P=m, SR=SR, CR=CR, gama_seed=gamma, data_config=data_config, opposition=opposition)
         all_results.append(result)
         all_scores_g.append(scores_g)
@@ -118,7 +118,7 @@ def your_function_to_track():
         plt.plot(range(1, len(best_shubert["mean_scores_g"]) + 1), best_shubert["mean_scores_g"], 'o-', label=f"CLONALG (CR={best_shubert['CR']}, Opp={best_shubert['opposition']})", color="blue")
         plt.plot(ast.literal_eval(df_ga_shubert_GA.iloc[7].values[1]), 'x-', label="GA", color="green")
         plt.plot(ast.literal_eval(df_ga_shubert_PSO.iloc[4].values[1]), 'x-', label="PSO", color="orange")
-        plt.plot(ast.literal_eval(df_ga_shubert_de.iloc[1].values[1]), 'x-', label="DE", color="red")
+        plt.plot(ast.literal_eval(df_ga_shubert_de.iloc[2].values[1]), 'x-', label="DE", color="red")
         plt.title("Comparação da evolução do GA e DE - Shubert")
         plt.xlabel("Gerações")
         plt.ylabel("Score")
@@ -132,7 +132,7 @@ def your_function_to_track():
         plt.plot(range(1, len(best_camel["mean_scores_g"]) + 1), best_camel["mean_scores_g"], 'o-', label=f"clonalf (CR={best_camel['CR']}, Opp={best_camel['opposition']})", color="blue")
         plt.plot(ast.literal_eval(df_ga_camel_GA.iloc[7].values[1]), 'x-', label="GA", color="green")
         plt.plot(ast.literal_eval(df_ga_camel_PSO.iloc[4].values[1]), 'x-', label="PSO", color="orange")
-        plt.plot(ast.literal_eval(df_ga_camel_de.iloc[1].values[1]), 'x-', label="DE", color="red")
+        plt.plot(ast.literal_eval(df_ga_camel_de.iloc[2].values[1]), 'x-', label="DE", color="red")
         plt.title("Comparação da evolução do GA e DE - Camel")
         plt.xlabel("Gerações")
         plt.ylabel("Score")
